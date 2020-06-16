@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-img [src]="headImg" class = "headImg"></ion-img>
+      </ion-avatar>
+      <ion-label>Home</ion-label>
+      <ion-chip (click) = "showLogin()" *ngIf = "checkLogin() == false">
+        <ion-avatar>
+          <img [src]="avatar">
+        </ion-avatar>
+        <ion-label>Login</ion-label>
+      </ion-chip>
+      <ion-chip (click) = "showLogin()" *ngIf = "checkLogin() == true">
+        <ion-label>Menu</ion-label>
+      </ion-chip>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+  </ion-header>
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide>
+        <div align = "center">
+          <ion-img [src]="slide1Img"class="img"></ion-img>
+          <ion-text color="dark">
+            <h1>Bem-Vindo</h1>
+            <h5>Esse aplicativo tem como objetivo demonstrar os dados sobre os casos de Covid-19</h5>
+          </ion-text>
+        </div>
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+          <ion-fab-button (click) = "sair()">
+            <ion-icon name="exit-outline"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+      </ion-slide>
+      <ion-slide>
+        <div align = "center">
+          <ion-img [src]="slide2Img"class="img"></ion-img>
+          <ion-text color="dark">
+            <h3>- Documentação da API -</h3>
+            <ion-button [href]="documentacao">Clique Aqui</ion-button>
+          </ion-text>
+          <ion-text color="dark">
+            <h5>Aplicativo desenvolvido por Julio Fonseca.</h5>
+          </ion-text>
+      </div>
+      </ion-slide>
+    </ion-slides>
+</ion-content>

@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-img [src]="headImg" class = "headImg"></ion-img>
+      </ion-avatar>
+      <ion-label>Covid-19</ion-label>
+      <ion-chip (click) = "showLogin()">
+        <ion-label>Menu</ion-label>
+      </ion-chip>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-searchbar inputmode="numeric" [(ngModel)] = "pais" placeholder="Digite um país" debounce = 1200 (ionChange) = "ionViewDidEnter()"></ion-searchbar>
+  <ion-list>
+    <ion-item>
+      <ion-label>N-C: Novos Confirmados</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>T-C: Total Confirmados</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>N-M: Novas Mortes</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>T-M: Total Mortes</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>N-R: Novos Recuperados</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>T-R: Total Recuperados</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-card>
+    <div>
+      <ion-card>
+        <ion-card-header class="titGlobal">
+          {{vPais[0]}}
+        </ion-card-header>
+        <ion-card-content>
+          <canvas #barCanvas></canvas>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ion-card>
+  
+  <ion-card>
+    <div>
+      <ion-card>
+        <ion-card-header class = "titPais">
+        </ion-card-header>
+        <ion-card-content>
+          <canvas #doughnutCanvas></canvas>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ion-card>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click) = "sair()">
+      <ion-icon name="exit-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

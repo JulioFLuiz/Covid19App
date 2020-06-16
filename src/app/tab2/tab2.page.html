@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-img [src]="headImg" class = "headImg"></ion-img>
+      </ion-avatar>
+      <ion-label>Cadastro</ion-label>
+      <ion-chip (click) = "showLogin()" *ngIf = "checkLogin() == false">
+        <ion-avatar>
+          <img [src]="avatar">
+        </ion-avatar>
+        <ion-label>Login</ion-label>
+      </ion-chip>
+      <ion-chip (click) = "showLogin()" *ngIf = "checkLogin() == true">
+        <ion-label>Menu</ion-label>
+      </ion-chip>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-label>Nome:</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-label>Sobrenome:</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-label>Email:</ion-label>
+        <ion-input [(ngModel)] = "email"></ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-label>Senha:</ion-label>
+        <ion-input type="password" [(ngModel)] = "password"></ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-button (click) = "createAuth()" class="btn">Entrar</ion-button>
+  </ion-card>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click) = "sair()">
+      <ion-icon name="exit-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

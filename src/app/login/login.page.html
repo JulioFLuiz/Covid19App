@@ -1,0 +1,58 @@
+<ion-header *ngIf = "checkLogin() == false">
+  <ion-toolbar>
+    <ion-avatar slot="start" class="avt">
+      <ion-img [src]="avatar" class = "img"></ion-img>
+    </ion-avatar>
+      &nbsp;&nbsp;&nbsp;<ion-label>Login</ion-label>
+    <ion-button (click) = "exitLogin()" slot="end" color = "danger">X</ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-header *ngIf = "checkLogin() == true">
+  <ion-toolbar>
+      &nbsp;&nbsp;&nbsp;<ion-label>Menu</ion-label>
+    <ion-button (click) = "exitLogin()" slot="end" color = "danger">X</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf = "checkLogin() == false">
+    <ion-card>
+      <ion-item>
+        <ion-label>Email:</ion-label>
+        <ion-input [(ngModel)] = "email"></ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-label>Senha:</ion-label>
+        <ion-input type="password" [(ngModel)] = "password"></ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-item>
+      <ion-button (click) = "loginAuth()" slot="start">Entrar</ion-button>
+      <ion-button (click) = "redirect(2)" color = "warning" slot="end">Cadastro</ion-button>
+    </ion-item>
+  </ion-card>
+  <ion-card *ngIf = "checkLogin() == true">
+    <ion-list>
+      <ion-radio-group>
+        <ion-item (click) = "redirect(1)">
+          <ion-label>Home</ion-label>
+        </ion-item>
+    
+        <ion-item (click) = "redirect(2)">
+          <ion-label>Cadastro</ion-label>
+        </ion-item>
+    
+        <ion-item (click) = "redirect(3)">
+          <ion-label>Covid-19</ion-label>
+        </ion-item>
+    
+        <ion-item>
+          <ion-button color="medium" slot = "start" (click) = "sairLogin()">Deslogar</ion-button>
+          <ion-button color="danger" slot = "end" (click) = "sair()">Sair</ion-button>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+  </ion-card>
+</ion-content>
